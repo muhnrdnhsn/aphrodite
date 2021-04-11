@@ -1,0 +1,12 @@
+@import './../../assets/styles/colors';
+
+.main-footer{
+    background-color: $primary;
+    color: $secondary;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 20px solid #9c1c20;
+}
