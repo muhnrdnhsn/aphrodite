@@ -1,0 +1,31 @@
+@import './assets/styles/colors';
+@import './assets/styles/fonts';
+
+$btn-border-radius: 0;
+$input-border-radius: 0;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    font-family:'Playfair Display';
+    font-size: 20px;
+}
+
+.nav-link{
+    font-family: 'Butler Stencil    ';
+    font-size: 20px;
+}
+.nav-link.active,
+  .nav-item.show .nav-link {
+    border-bottom: 2px solid white;
+    }
+    
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap{
+    flex: 1;
+}
