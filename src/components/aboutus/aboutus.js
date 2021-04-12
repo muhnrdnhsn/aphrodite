@@ -9,6 +9,7 @@ const AboutUs = () => {
                 src={image}
                 width="512"
                 className="align-items-center"
+                alt="Vladimir Prostran"
             />
             <p className="text">
                 Inspired by the diversity of our own culture, beautiful Indonesia. We are 4

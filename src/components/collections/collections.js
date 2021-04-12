@@ -1,25 +1,33 @@
-import React from 'react';
-// { useEffect, useState } 
-// import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+
+import './collections.scss';
+
+
 
 const Collections = () => {
     
-    // const [collectionState, setCollectionState] = useState({
-    //     collections: [],
-    //     name: '',
-    //     thumbnail: ''
-    // });
+
+    const [collectionState, setCollectionState] = useState({
+        collections: []
+    });
 
 
-    // useEffect(() => {
-    //     getCollections()
-    // });
+    useEffect(() => {
+        getCollections()
+    });
 
-    // const getCollections = () => {
-    //     axios.get('http://localhost:5000/collections')
-    //         .then(res => console.log(res.data))
-    //         .catch(err => console.log(err))
-    // }
+    const getCollections = () => {
+        axios.get('http://localhost:5000/collections')
+            .then(res => setCollectionState({...collectionState, collections: res.data}))
+            .catch(err => console.log("Error when fetching data from database"))
+    }
+
+    const handleClick = (collection) => {
+        console.log(collection);
+    }
 
     // const fileToBuffer = (file) => {
     //     return new Promise((resolve, reject) => {
@@ -67,18 +75,29 @@ const Collections = () => {
 
     return(
         <div>
-            <p>COLLECTIONS</p>
-            {/* <form>
-                <div className="form-group">
-                    <label htmlFor="thumbnail">Example file input</label>
-                    <input type="file" className="form-control-file" id="thumbnail" onChange={handleChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" placeholder="Name" onChange={handleChange}/>
-                </div>
-                <button type="button" className="btn btn-primary" onClick={handleSubmit}>Upload</button>
-            </form> */}
+            {collectionState.collections.length !== 0 &&
+                <Carousel
+                    responsive={{
+                        desktop:{ 
+                            breakpoint: {max: 3000, min:0},
+                            items: 3
+                        }
+                    }}
+                    swipeable={false}
+                    draggable={false}
+                    showDots={false}
+                    autoPlay={false}
+                    keyBoardControl={false}
+
+                >
+                    {collectionState.collections.map(collection => (
+                        <div className="card-container" key={collection._id}>
+                            <img src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
+                            <div className="text-overlay-center">{collection.name}</div>
+                        </div>
+                    ))}
+                </Carousel>
+            }
         </div>
     )
 }
