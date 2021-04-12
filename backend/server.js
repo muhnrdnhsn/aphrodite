@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const collectionRouter = require('./routes/collections');
+const itemRouter = require('./routes/items');
 
 require('dotenv').config();
 
@@ -21,6 +22,7 @@ connection.once('open', ()=>{
 });
 
 app.use('/collections', collectionRouter);
+app.use('/items', itemRouter);
 
 app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`);
