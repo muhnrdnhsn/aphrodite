@@ -1,0 +1,53 @@
+@import '../../assets/styles/colors';
+
+.text-title{
+    color: $primary;
+    font-size: 62px;
+    text-align: center;
+    font-family: 'Playfair Display';
+    font-weight: bold;
+}
+
+.text-header{
+    color: $primary;
+    font-size: 20px;
+    text-align: right;
+    align-self: center;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.active-link{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.text-item{
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.page-link{
+    font-size: 20px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    &:hover{
+        background: none;
+    }
+}
+
+.page-item.disabled .page-link{
+    background: none;
+    border: none;
+    &:hover{
+        background: none;
+    }
+}
+
+.bd-top{
+    border-top: 2px solid $gold;
+    padding-top: 15px;
+}

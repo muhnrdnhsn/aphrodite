@@ -4,11 +4,13 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
 import './collections.scss';
+import { useHistory } from 'react-router-dom';
 
 
 
 const Collections = () => {
     
+    const history = useHistory();
 
     const [collectionState, setCollectionState] = useState({
         collections: []
@@ -26,7 +28,7 @@ const Collections = () => {
     }
 
     const handleClick = (collection) => {
-        console.log(collection);
+        history.push(`/collections/${collection.name}`)
     }
 
     // const fileToBuffer = (file) => {
@@ -92,8 +94,8 @@ const Collections = () => {
                 >
                     {collectionState.collections.map(collection => (
                         <div className="card-container" key={collection._id}>
-                            <img src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
-                            <div className="text-overlay-center">{collection.name}</div>
+                            <img style={{cursor: 'pointer'}} src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
+                            <div style={{cursor: 'pointer'}} className="text-overlay-center" onClick={() => handleClick(collection)} >{collection.name}</div>
                         </div>
                     ))}
                 </Carousel>

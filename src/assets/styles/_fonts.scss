@@ -8,6 +8,13 @@
 @font-face {
     font-family: 'Playfair Display';
     src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
         url('../fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
     font-style: italic;
 }
