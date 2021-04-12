@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import { Navbar as BootstrapNavbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router';
 
 const Navbar = () => {
@@ -34,6 +34,7 @@ const Navbar = () => {
                             width="90"
                             height="90"
                             className="d-inline-block align-top"
+                            alt="Aphtodite"
                         />
                     </Col>
                     <Col className={"align-self-center"}>
