@@ -5,6 +5,7 @@ import { useLocation } from 'react-router';
 
 const Navbar = () => {
     const location = useLocation();
+    const activeKey = '/' + location.pathname.split('/')[1]
     return(
         // <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         //     <Link to="/" className="navbar-brand">Aphrodite</Link>
@@ -48,7 +49,7 @@ const Navbar = () => {
             <BootstrapNavbar.Toggle />
             <BootstrapNavbar.Collapse className="justify-content-end">
                 {/* <BootstrapNavbar.Text class="text-white">ASU</BootstrapNavbar.Text> */}
-                <Nav className="mr-2" activeKey={location.pathname}>
+                <Nav className="mr-2" activeKey={activeKey}>
                     <Nav.Link href="/" className="mr-4">HOME</Nav.Link>
                     <Nav.Link href="/about" className="mr-4">ABOUT US</Nav.Link>
                     <Nav.Link href="/collections" className="mr-4">COLLECTIONS</Nav.Link>

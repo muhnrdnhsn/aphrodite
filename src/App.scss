@@ -3,12 +3,15 @@
 
 $btn-border-radius: 0;
 $input-border-radius: 0;
+$container-max-widths: (
+    xl: 1440
+);
 
 @import 'node_modules/bootstrap/scss/bootstrap';
-
 body {
     font-family:'Playfair Display';
     font-size: 20px;
+    background-image: url('./assets/images/bg.png');
 }
 
 .nav-link{
