@@ -1,0 +1,38 @@
+@import '../../assets/styles/colors';
+.text-h4{
+    color: red;
+    font-size: 20pt;
+    margin-top: 10%;
+    margin-right: 20%;
+}
+
+.text-h2{
+    font-size: 36px;
+    // color: #F6F5F1;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.text-h1{
+    font-size: 100px;
+    // font-family: 'Butler Stencil';
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+.text-h3{
+    font-size: 23pt;
+    font-weight: bolder;
+}
+
+.btn.lg-btn{
+    font-size: 22pt;
+    margin-right: 40pt;
+    border-radius: 10px;
+    padding: 10pt
+}
+
+.px-10{
+    padding-right: 50pt;
+    padding-left: 50pt;
+}
