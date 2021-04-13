@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/users');
 const collectionRouter = require('./routes/collections');
+const itemRouter = require('./routes/items');
 
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ connection.once('open', ()=>{
 });
 
 app.use('/collections', collectionRouter);
+app.use('/items', itemRouter);
 app.use('/auth', userRouter);
 
 app.listen(port, ()=>{

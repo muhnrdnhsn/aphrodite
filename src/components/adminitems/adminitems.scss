@@ -1,15 +1,10 @@
+@import '../../assets/styles/colors';
+
 .centered{
     min-height: 60vh;
     align-items: center;
 }
 
-.cardadmin-container{
-    position: relative;
-    text-align: center;
-    background-color: white;
-    padding-top: 10px;
-    color: white;
-}
 
 .text-overlay-center{
     position: absolute;
@@ -23,4 +18,17 @@
 .btn-action{
     width: 40%;
     margin: 10px;
+}
+
+.bold-text{
+    font-size: 60px;
+    font-weight: bold;
+    color: $primary;
+}
+
+.text-link{
+    background-color: $dark;
+    color: white;
+    padding: 2px;
+    cursor: pointer;
 }

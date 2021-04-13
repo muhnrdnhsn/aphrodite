@@ -6,7 +6,10 @@ const Items = (props) => {
     const [itemsState, setItemsState] = useState({
         collectionName: props.match.params.name,
         perpage: 6,
-        page: 1
+        page: 1,
+        totalpage: 1,
+        minpage: 1,
+        maxpage: 1
     });
 
     const setPerPage = (value) => {
