@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import './collections.scss';
 import { useHistory } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 
 
@@ -13,79 +14,66 @@ const Collections = () => {
     const history = useHistory();
 
     const [collectionState, setCollectionState] = useState({
-        collections: []
+        collections: [],
+        isLoading: true,
+        error: ''
     });
 
 
     useEffect(() => {
-        getCollections()
+        if(collectionState.isLoading){
+            getCollections()
+        }
     });
 
     const getCollections = () => {
         axios.get('http://localhost:5000/collections')
-            .then(res => setCollectionState({...collectionState, collections: res.data}))
-            .catch(err => console.log("Error when fetching data from database"))
+            .then(res => setCollectionState({...collectionState, collections: res.data, isLoading:false}))
+            .catch(err => setCollectionState({...collectionState, isLoading: false, error: 'Error when fetching data from database'}))
     }
 
     const handleClick = (collection) => {
         history.push(`/collections/${collection.name}`)
     }
 
-    
-
-    // const handleChange = async (e) => {
-    //     if(e.target.id === 'thumbnail'){
-    //         const data = await fileToBuffer(e.target.files[0])
-    //         setCollectionState({
-    //             ...collectionState,
-    //             [e.target.id]: data
-    //         })
-    //     }else{
-    //         setCollectionState({
-    //             ...collectionState,
-    //             [e.target.id]: e.target.value
-    //         })
-    //     }
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     try{
-    //         const collection = {
-    //             name: collectionState.name,
-    //             thumbnail: collectionState.thumbnail
-    //         }
-    //         axios.post('http://localhost:5000/collections/add', collection)
-    //             .then(res => console.log(res))
-    //     }catch (err){
-    //         console.log(err);
-    //     }
-    // }
 
     return(
         <div>
-            {collectionState.collections.length !== 0 &&
-                <Carousel
-                    responsive={{
-                        desktop:{ 
-                            breakpoint: {max: 3000, min:0},
-                            items: 3
-                        }
-                    }}
-                    swipeable={false}
-                    draggable={false}
-                    showDots={false}
-                    autoPlay={false}
-                    keyBoardControl={false}
+            {
+                collectionState.isLoading ?
+                (
+                    <div className="row justify-content-center centered">
+                    <Spinner animation="grow" variant="primary" className="mr-4"/>
+                    <Spinner animation="grow" variant="primary" className="mr-4"/>
+                    <Spinner animation="grow" variant="primary" className="mr-4"/>
+                    </div>
+                )
+                :
+                (
 
-                >
-                    {collectionState.collections.map(collection => (
-                        <div className="card-container" key={collection._id}>
-                            <img style={{cursor: 'pointer'}} src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
-                            <div style={{cursor: 'pointer'}} className="text-overlay-center" onClick={() => handleClick(collection)} >{collection.name}</div>
-                        </div>
-                    ))}
-                </Carousel>
+                    collectionState.collections.length !== 0 &&
+                    <Carousel
+                        responsive={{
+                            desktop:{ 
+                                breakpoint: {max: 3000, min:0},
+                                items: 3
+                            }
+                        }}
+                        swipeable={false}
+                        draggable={false}
+                        showDots={false}
+                        autoPlay={false}
+                        keyBoardControl={false}
+
+                    >
+                        {collectionState.collections.map(collection => (
+                            <div className="card-container" key={collection._id}>
+                                <img style={{cursor: 'pointer'}} src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
+                                <div style={{cursor: 'pointer'}} className="text-overlay-center" onClick={() => handleClick(collection)} >{collection.name}</div>
+                            </div>
+                        ))}
+                    </Carousel>
+                )
             }
         </div>
     )
