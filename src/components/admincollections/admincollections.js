@@ -5,13 +5,24 @@ import axios from 'axios';
 import Addcollmodal from '../addcollmodal/addcollmodal';
 import Removemodal from '../removecollmodal/removecollmodal';
 import Editcollmodal from '../editcollmodal/editcollmodal';
+import { useHistory } from 'react-router-dom';
 
 const AdminCollections = () => {
-
+    const history = useHistory()
     useEffect(() => {
         if(state.isLoading){
             getCollections();
         }
+        axios.get('http://localhost:5000/auth/login', {
+            headers: {
+                "token": localStorage.getItem("token")
+            }
+        })
+        .then((res) => {
+            if(!res.data.auth){
+                history.push('/login')  
+            }
+        }).catch(() => history.push('/login'))
     })
 
     const handleRemove = (collection) => {
@@ -87,7 +98,7 @@ const AdminCollections = () => {
                         {
                             state.collections.map(collection => (
                                 <div className="col-3 mb-4" key={collection._id}>
-                                    <div className="card-container">
+                                    <div className="cardadmin-container">
                                         <img src={collection.thumbnail} width="300" height="400" alt="coll" />
                                         <div style={{cursor: 'default'}} className="text-overlay-center" >{collection.name}</div>
                                         <button className="btn btn-secondary btn-action" onClick={() => handleEdit(collection)}>Edit</button>
