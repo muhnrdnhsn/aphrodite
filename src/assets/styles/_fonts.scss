@@ -15,6 +15,13 @@
 @font-face {
     font-family: 'Playfair Display';
     src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
         url('../fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
     font-style: italic;
 }
@@ -46,6 +53,20 @@
     font-family: 'Butler Stencil';
     src: local('Butler Stencil'), local('ButlerStencil'),
         url('../fonts/Butler_Stencil/Butler_Regular_Stencil.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Butler Stencil';
+    src: local('Butler Stencil'), local('ButlerStencil'),
+        url('../fonts/Butler_Stencil/Butler_Bold_Stencil.otf') format('opentype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Butler Stencil';
+    src: local('Butler Stencil'), local('ButlerStencil'),
+        url('../fonts/Butler_Stencil/Butler_ExtraBold_Stencil.otf') format('opentype');
+    font-weight: bolder;
 }
 
 @font-face {
