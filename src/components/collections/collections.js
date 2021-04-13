@@ -31,20 +31,7 @@ const Collections = () => {
         history.push(`/collections/${collection.name}`)
     }
 
-    // const fileToBuffer = (file) => {
-    //     return new Promise((resolve, reject) => {
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsDataURL(file)
-
-    //         fileReader.onload = () => {
-    //             resolve(fileReader.result);
-    //         }
-
-    //         fileReader.onerror = (error) => {
-    //             reject(error)
-    //         }
-    //     })
-    // }
+    
 
     // const handleChange = async (e) => {
     //     if(e.target.id === 'thumbnail'){

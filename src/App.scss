@@ -32,3 +32,21 @@ body {
 .content-wrap{
     flex: 1;
 }
+
+.modal-footer{
+    justify-content: center;
+}
+
+.custom-file-label{
+    font-size: 15px;
+    font-family: 'Playfair Display';
+}
+
+.invalid-feedback{
+    color: $primary;
+    font-size: 15px;
+}
+
+.form-control.is-invalid{
+    border-color: $primary;
+}

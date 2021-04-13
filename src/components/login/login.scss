@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors';
+
+.centered{
+    justify-content: center;
+    align-items: center;
+}
+
+.form-card{
+    background: white;
+    padding: 20pt;
+    border-radius: 5pt;
+    color: $primary;
+    min-width: 40%;
+}
+
+.text-title{
+    font-size: 30px;
+}
+
+.text-subtitle{
+    font-size: 15px;
+    text-align: center;
+}
