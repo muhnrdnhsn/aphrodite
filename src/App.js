@@ -1,7 +1,5 @@
 import React, {  } from 'react';
-import './App.scss';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './components/navbar/navbar';
 import Homepage from './components/homepage/homepage';
 import AboutUs from './components/aboutus/aboutus';
@@ -11,12 +9,30 @@ import Footer from './components/footer/footer';
 import Items from './components/items/items';
 
 const App = () => {
-  
   return(
     <div className="page-container">
       <div className="content-wrap">
         <Router>
-          <Navbar />
+          <Navbar 
+            links={[
+              {
+                  name: 'HOME',
+                  href: '/'
+              },
+              {
+                  name: 'ABOUT US',
+                  href: '/about'
+              },
+              {
+                  name: 'COLLECTIONS',
+                  href: '/collections'
+              },
+              {
+                  name: 'JOURNAL',
+                  href: '/journal'
+              }
+            ]}
+          />
           <br/>
           <Route exact path="/" render={() => <Homepage />} />
           <Route exact path="/about" render={() => <AboutUs />} />

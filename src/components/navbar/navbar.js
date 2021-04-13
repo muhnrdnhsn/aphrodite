@@ -3,29 +3,15 @@ import React from 'react';
 import { Navbar as BootstrapNavbar, Nav, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router';
 
-const Navbar = () => {
+const Navbar = (params) => {
     const location = useLocation();
-    const activeKey = '/' + location.pathname.split('/')[1]
+    let activeKey = '/' + location.pathname.split('/')[1]
+    if(location.pathname.split('/')[1] !== '/admin'){
+        activeKey = location.pathname
+    }
+
+    const {links} = params
     return(
-        // <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        //     <Link to="/" className="navbar-brand">Aphrodite</Link>
-        //     <div className="collapse navbar-collapse">
-        //         <ul className="navbar-nav mr-auto">
-        //             <li className="navbar-item">
-        //                 <Link to="/" className="nav-link">HOME</Link>
-        //             </li>
-        //             <li className="navbar-item">
-        //                 <Link to="/about" className="nav-link">ABOUT US</Link>
-        //             </li>
-        //             <li className="navbar-item">
-        //                 <Link to="/collections" className="nav-link">COLLECTIONS</Link>
-        //             </li>
-        //             <li className="navbar-item">
-        //                 <Link to="/journal" className="nav-link">JOURNAL</Link>
-        //             </li>
-        //         </ul>
-        //     </div>
-        // </nav>
         <BootstrapNavbar bg="primary" variant="dark">
             <BootstrapNavbar.Brand href="/" >
                 <Row>
@@ -50,10 +36,9 @@ const Navbar = () => {
             <BootstrapNavbar.Collapse className="justify-content-end">
                 {/* <BootstrapNavbar.Text class="text-white">ASU</BootstrapNavbar.Text> */}
                 <Nav className="mr-2" activeKey={activeKey}>
-                    <Nav.Link href="/" className="mr-4">HOME</Nav.Link>
-                    <Nav.Link href="/about" className="mr-4">ABOUT US</Nav.Link>
-                    <Nav.Link href="/collections" className="mr-4">COLLECTIONS</Nav.Link>
-                    <Nav.Link href="/journal" className="mr-4">JOURNAL</Nav.Link>
+                    {
+                        links.map((link, i) => (<Nav.Link key={i} href={link.href} className="mr-4">{link.name}</Nav.Link>))
+                    }
                 </Nav>
             </BootstrapNavbar.Collapse>
         </BootstrapNavbar>
