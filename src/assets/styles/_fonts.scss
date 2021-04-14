@@ -1,0 +1,75 @@
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: medium;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display'), local('PlayfairDisplay'),
+        url('../fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf') format('truetype');
+    font-weight: medium;
+}
+
+@font-face {
+    font-family: 'Butler Stencil';
+    src: local('Butler Stencil'), local('ButlerStencil'),
+        url('../fonts/Butler_Stencil/Butler_Regular_Stencil.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Butler Stencil';
+    src: local('Butler Stencil'), local('ButlerStencil'),
+        url('../fonts/Butler_Stencil/Butler_Bold_Stencil.otf') format('opentype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Butler Stencil';
+    src: local('Butler Stencil'), local('ButlerStencil'),
+        url('../fonts/Butler_Stencil/Butler_ExtraBold_Stencil.otf') format('opentype');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: 'Quincy CF';
+    src: url("//db.onlinewebfonts.com/t/d8c3c276bfc50eb876897d00332d505e.ttf") format("truetype")
+}

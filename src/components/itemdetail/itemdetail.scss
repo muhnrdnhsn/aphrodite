@@ -1,0 +1,35 @@
+@import '../../assets/styles/colors';
+
+.h1-text{
+    font-weight: bolder;
+}
+
+.h4-text{
+    color: $primary;
+}
+
+.btn-block.btn-lg{
+    height: 90%;
+    font-size: 28px;
+    border-radius: 0;
+    background-color: #BF9479;
+    opacity: 80%;
+    &:hover{
+        background-color: #BF9479;
+        opacity: 100%;
+    }
+}
+
+.btn-block.btn-md{
+    font-size: 18px;
+}
+
+button.btn.btn-block.btn-md.btn-gray{
+    background-color: gray;
+    opacity: 90%;
+    color: white;
+    &:hover{
+        background-color: darkgray;
+        opacity: 100%;
+    }
+}

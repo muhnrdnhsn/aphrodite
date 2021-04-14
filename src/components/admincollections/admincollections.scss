@@ -1,0 +1,26 @@
+.centered{
+    min-height: 60vh;
+    align-items: center;
+}
+
+.cardadmin-container{
+    position: relative;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+    color: white;
+}
+
+.text-overlay-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Quincy CF';
+    font-size: 55px;
+}
+
+.btn-action{
+    width: 40%;
+    margin: 10px;
+}

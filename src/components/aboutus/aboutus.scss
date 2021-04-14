@@ -1,0 +1,23 @@
+@import './../../assets/styles/colors';
+
+.title{
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-size: 72px;
+    font-weight: medium;
+    text-align: center;
+    color: $primary;
+    margin-bottom: 0;
+}
+
+.text{
+    font-family: 'Playfair Display';
+    font-size: 25px;
+    text-align: center;
+    font-weight: medium;
+    color: $primary;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

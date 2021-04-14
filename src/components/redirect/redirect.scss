@@ -1,0 +1,24 @@
+@import '../../assets/styles/colors';
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text{
+    font-size: 60pt;
+    font-weight: bold;
+}
+
+.text-subtitle{
+    font-size: 25pt;
+    color: $primary;
+}
+
+.text-content{
+    font-size: 30pt;
+}
+
+.page-container.center{
+    background-color: $secondary;
+}

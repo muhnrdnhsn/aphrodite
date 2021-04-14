@@ -1,0 +1,69 @@
+@import './assets/styles/colors';
+@import './assets/styles/fonts';
+
+$breadcrumb-divider: quote(">") !default;
+$btn-border-radius: 0;
+$input-border-radius: 0;
+$container-max-widths: (
+    xl: 1440
+);
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+body {
+    font-family:'Playfair Display';
+    font-size: 20px;
+    background-image: url('./assets/images/bg.png');
+}
+
+.nav-link{
+    font-family: 'Butler Stencil    ';
+    font-size: 20px;
+}
+.nav-link.active,
+  .nav-item.show .nav-link {
+    border-bottom: 2px solid white;
+    }
+    
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap{
+    flex: 1;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.custom-file-label{
+    font-size: 15px;
+    font-family: 'Playfair Display';
+}
+
+.invalid-feedback{
+    color: $primary;
+    font-size: 15px;
+}
+
+.form-control.is-invalid{
+    border-color: $primary;
+}
+
+.breadcrumb{
+    background-color: transparent;
+}
+
+.breadcrumb-item.active {
+    color: $primary;
+}
+
+hr{
+    border-top: 4px solid $gold;
+}
+
+.bd-top{
+    border-top: 3px solid gold;
+}
