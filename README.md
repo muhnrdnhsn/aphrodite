@@ -12,3 +12,7 @@
 3. Rename ".env.example" to ".env"
 4. Run script "npm install"
 5. Run script "npm run start-be"
+
+### ADMIN
+username: admin
+password: admin
