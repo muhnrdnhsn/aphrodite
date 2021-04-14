@@ -13,7 +13,7 @@ const Removemodal = ({selected, handleClose, show}) => {
             const item = {
                 id: selected._id
             }
-            axios.delete('http://localhost:5000/items', {
+            axios.delete(`${process.env.REACT_APP_BE_URL}/items`, {
                 headers: {
                     'token': localStorage.getItem('token')
                 },

@@ -20,7 +20,7 @@ const ItemDetail = (props) => {
 
     const getData = async () => {
         try{
-            const item = await axios.get(`http://localhost:5000/items/${itemid}`)
+            const item = await axios.get(`${process.env.REACT_APP_BE_URL}/items/${itemid}`)
             setState({...state, isLoading: false, item: item.data})
         }catch(err){
             // setState({...state, isLoading: false, error: 'Error when fetching data from database'})

@@ -15,7 +15,7 @@ const AdminItems = () => {
         if(state.isLoading){
             getData();
         }
-        axios.get('http://localhost:5000/auth/login', {
+        axios.get(`${process.env.REACT_APP_BE_URL}/auth/login`, {
             headers: {
                 "token": localStorage.getItem("token")
             }
@@ -63,8 +63,8 @@ const AdminItems = () => {
     const getData = async () => {
         
         try{
-            const colls = await axios.get('http://localhost:5000/collections')
-            const items = await axios.get('http://localhost:5000/items')
+            const colls = await axios.get(`${process.env.REACT_APP_BE_URL}/collections`)
+            const items = await axios.get(`${process.env.REACT_APP_BE_URL}/items`)
             setState({...state, isLoading: false, collections: colls.data, items: items.data})
         }catch(err){
             setState({...state, isLoading: false, error: 'Error when fetching data from database'})

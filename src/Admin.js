@@ -10,7 +10,7 @@ const Admin = (props) => {
     const history = useHistory();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/auth/login', {
+        axios.get(`${process.env.REACT_APP_BE_URL}/auth/login`, {
             headers: {
                 "token": localStorage.getItem("token")
             }

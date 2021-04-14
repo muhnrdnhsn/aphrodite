@@ -31,8 +31,8 @@ const Items = (props) => {
 
     const getData = async () => {
         try{
-            const coll = await axios.get(`http://localhost:5000/collections/${itemsState.collectionName}`)
-            const items = await axios.get(`http://localhost:5000/items/collection/${coll.data._id}`)
+            const coll = await axios.get(`${process.env.REACT_APP_BE_URL}/collections/${itemsState.collectionName}`)
+            const items = await axios.get(`${process.env.REACT_APP_BE_URL}/items/collection/${coll.data._id}`)
             setItemsState({...itemsState, isLoading: false, items: items.data})
         }catch(err){
             // setState({...state, isLoading: false, error: 'Error when fetching data from database'})

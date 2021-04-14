@@ -40,7 +40,7 @@ const Addphotoitemmodal = ({selected, handleClose, show}) => {
                 photo: modalState.thumbnail,
                 id: selected._id
             }
-            axios.post('http://localhost:5000/items/edit', body, {
+            axios.post(`${process.env.REACT_APP_BE_URL}/items/edit`, body, {
                 headers: {
                     'token': localStorage.getItem('token')
                 }
