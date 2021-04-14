@@ -27,7 +27,7 @@ const Collections = () => {
     });
 
     const getCollections = () => {
-        axios.get('http://localhost:5000/collections')
+        axios.get(`${process.env.REACT_APP_BE_URL}/collections`)
             .then(res => setCollectionState({...collectionState, collections: res.data, isLoading:false}))
             .catch(err => setCollectionState({...collectionState, isLoading: false, error: 'Error when fetching data from database'}))
     }

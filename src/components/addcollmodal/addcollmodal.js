@@ -55,7 +55,7 @@ const Addcollmodal = ({collections, handleClose, show}) => {
                 name: modalState.name,
                 thumbnail: modalState.thumbnail
             }
-            axios.post('http://localhost:5000/collections/add', collection, {
+            axios.post(`${process.env.REACT_APP_BE_URL}/collections/add`, collection, {
                 headers: {
                     'token': localStorage.getItem('token')
                 }

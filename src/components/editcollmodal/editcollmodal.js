@@ -56,7 +56,7 @@ const Editcollmodal = ({selected, collections, handleClose, show}) => {
                 name: modalState.name,
                 thumbnail: modalState.thumbnail
             }
-            axios.post('http://localhost:5000/collections/edit', data, {
+            axios.post(`${process.env.REACT_APP_BE_URL}/collections/edit`, data, {
                 headers: {
                     'token': localStorage.getItem('token')
                 }

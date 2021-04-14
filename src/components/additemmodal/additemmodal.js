@@ -42,7 +42,7 @@ const Additemmodal = ({collections, handleClose, show}) => {
         e.preventDefault()
         try{
             const item = modalState
-            axios.post('http://localhost:5000/items/add', item, {
+            axios.post(`${process.env.REACT_APP_BE_URL}/items/add`, item, {
                 headers: {
                     'token': localStorage.getItem('token')
                 }

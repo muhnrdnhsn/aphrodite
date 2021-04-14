@@ -5,7 +5,7 @@ import {sha256} from 'js-sha256';
 import axios from 'axios';
 const Login = () => {
     useEffect(() => {
-        axios.get('http://localhost:5000/auth/login', {
+        axios.get(`${process.env.REACT_APP_BE_URL}/auth/login`, {
             headers: {
                 "token": localStorage.getItem("token")
             }
@@ -36,7 +36,7 @@ const Login = () => {
         if(loginState.username && loginState.password){
             const hash = sha256(loginState.password);
             const username = loginState.username;
-            axios.post('http://localhost:5000/auth/login', {
+            axios.post(`${process.env.REACT_APP_BE_URL}/auth/login`, {
                 username: username,
                 password: hash
             }).then((res) => {
