@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './items.scss';
-import dummy from '../../assets/images/dummy_item.JPG';
+// import dummy from '../../assets/images/dummy_item.JPG';
+import axios from 'axios'
+import { Spinner } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 const Items = (props) => {
-
+    const history = useHistory()
+    useEffect(() => {
+        if(itemsState.isLoading){
+            getData()
+        }
+    })
     const [itemsState, setItemsState] = useState({
         collectionName: props.match.params.name,
         perpage: 6,
         page: 1,
         totalpage: 1,
         minpage: 1,
-        maxpage: 1
+        maxpage: 1,
+        isLoading: true,
+        items: []
     });
 
     const setPerPage = (value) => {
@@ -19,6 +29,15 @@ const Items = (props) => {
         })
     }
 
+    const getData = async () => {
+        try{
+            const coll = await axios.get(`http://localhost:5000/collections/${itemsState.collectionName}`)
+            const items = await axios.get(`http://localhost:5000/items/collection/${coll.data._id}`)
+            setItemsState({...itemsState, isLoading: false, items: items.data})
+        }catch(err){
+            // setState({...state, isLoading: false, error: 'Error when fetching data from database'})
+        }
+    }
     return (
         <div className="container no-gutters">
             <div className="row mx-4 px-4 mb-4">
@@ -36,44 +55,34 @@ const Items = (props) => {
                     <span className={"clickable" + (itemsState.perpage === 24 ? " active-link" : "")} onClick={()=>setPerPage(24)}>24</span>
                 </div>
             </div>
-            <div className="row px-4 mx-4 mb-4">
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-                <div className="col-4 mb-4">
-                    <img src={dummy} width="100%" height="600" alt="dummy" />
-                    <p className="text-item">BATARA RATIH</p>
-                    <p className="text-item">IDR 250,000</p>
-                </div>
-            </div>
+                {
+                    itemsState.isLoading ? 
+                    (
+                        <div className="row justify-content-center centered">
+                            <Spinner animation="grow" variant="primary" className="mr-4"/>
+                            <Spinner animation="grow" variant="primary" className="mr-4"/>
+                            <Spinner animation="grow" variant="primary" className="mr-4"/>
+                        </div>
+                    )
+                    :
+                    (
+                        <div className="row px-4 mx-4 mb-4">
+                            {itemsState.items.map(item => (
+                                <div key={item._id} className="col-4 mb-4">
+                                    <img style={{cursor: 'pointer'}} src={item.photos[0]} width="100%" height="600" alt={item.name} onClick={() => history.push(`/collections/${itemsState.collectionName}/${item._id}`)} />
+                                    <p className="text-item">{item.name.toUpperCase()}</p>
+                                    <p className="text-item">IDR {item.price}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )
+                }
 
-            <div className="row justify-content-center bd-top">
+            {/* <div className="row justify-content-center bd-top">
                 <nav>
                     <ul className="pagination">
                         <li className="page-item disabled">
-                            <p className="page-link" tabindex="-1" >PREV</p>
+                            <p className="page-link" tabIndex="-1" >PREV</p>
                         </li>
                         <li className="page-item active"><p className="page-link" >1</p></li>
                         <li className="page-item"><p className="page-link" >2</p></li>
@@ -83,7 +92,7 @@ const Items = (props) => {
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> */}
 
         </div>
     )
