@@ -8,6 +8,13 @@ router.route('/').get((req, res) => {
         .catch(() => res.status(400).json('Error!'));
 })
 
+router.route('/:id').get((req, res) => {
+    const {id} = req.params
+    Item.findById(id)
+        .then(items => res.json(items))
+        .catch(() => res.status(400).json('Error!'));
+})
+
 router.route('/collection/:id').get((req, res) => {
     const {id} = req.params
 
