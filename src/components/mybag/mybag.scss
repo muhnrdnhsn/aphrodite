@@ -1,0 +1,21 @@
+.centered{
+    justify-content: center;
+    align-items: center;
+}
+
+.content-card{
+    background: white;
+    padding: 20pt;
+    border-radius: 5pt;
+    // color: $primary;
+    min-width: 50%;
+}
+
+.text-title{
+    font-size: 30px;
+    color: black;
+}
+
+.text-small{
+    font-size: 15px;
+}

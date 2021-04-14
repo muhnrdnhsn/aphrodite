@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import image from '../../assets/images/home.JPG';
+import image from '../../assets/images/home.png';
 import './homepage.scss'
 
 const Homepage = () => {
@@ -17,7 +17,7 @@ const Homepage = () => {
                     <button className="btn btn-primary lg-btn" onClick={() => history.push('/collections')}>SHOP NOW</button>
                 </div>
                 <div className="col">
-                    <img src={image} alt="Aphrodite" height="600"/>
+                    <img src={image} alt="Aphrodite" height="700"/>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './components/login/login';
 import './App.scss';
 import Admin from './Admin';
+import Redirect from './components/redirect/redirect';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/login" render={() => <Login />} />
         <Route path="/admin" render={() => <Admin />} />
+        <Route path="/redirect" render={() => <Redirect />} />
         <Route render={() => <App />} />
       </Switch>
     </Router>,
