@@ -121,7 +121,13 @@ const ItemDetail = (props) => {
                             </div>
                             <div className="row">
                                 <div className="col-8">
-                                    <button disabled={!(state.material !== '-' && state.size !== '-' && state.quantity !== '-')} className="btn btn-primary btn-block btn-md">ADD TO BAG</button>
+                                    <button 
+                                        disabled={!(state.material !== '-' && state.size !== '-' && state.quantity !== '-')} 
+                                        className="btn btn-primary btn-block btn-md"
+                                        onClick={() => history.push('/mybag', state)}
+                                    >
+                                        ADD TO BAG
+                                    </button>
                                 </div>
                                 <div className="col-4">
                                     <button className="btn btn-block btn-md btn-gray" onClick={()=> history.push(`/collections/${collname}`)}>BACK</button>

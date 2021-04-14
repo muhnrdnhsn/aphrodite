@@ -8,6 +8,7 @@ import Journal from './components/journal/journal';
 import Footer from './components/footer/footer';
 import Items from './components/items/items';
 import ItemDetail from './components/itemdetail/itemdetail';
+import Mybag from './components/mybag/mybag';
 
 const App = () => {
   return(
@@ -39,6 +40,7 @@ const App = () => {
           <Route exact path="/about" render={() => <AboutUs />} />
           <Route exact path="/collections" render={() => <Collections />} />
           <Route exact path="/journal" render={() => <Journal />} />
+          <Route exact path="/mybag" render={(props) => <Mybag {...props} />} />
           <Route exact path="/collections/:name" render={(props) => <Items {...props} />} />
           <Route exact path="/collections/:name/:id" render={(props) => <ItemDetail {...props} />} />
         </Router>
