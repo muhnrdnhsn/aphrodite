@@ -53,7 +53,7 @@ const ItemDetail = (props) => {
                 :
                 (
                     <div className="media">
-                        <Carousel slide={false} indicators={false} controls={state.item.photos.length > 1}>
+                        <Carousel slide={false} indicators={false} controls={state.item.photos.length > 1} interval={null}>
                             {
                                 state.item.photos.map((photo, i) => (
                                     <Carousel.Item key={i}>
