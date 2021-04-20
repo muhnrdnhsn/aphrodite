@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import dummy from '../../assets/images/dummy_item.JPG';
 import axios from 'axios';
-import { Spinner } from 'react-bootstrap';
+import { Carousel, Spinner } from 'react-bootstrap';
 import './itemdetail.scss';
 import {useHistory} from 'react-router-dom';
 
@@ -53,7 +53,17 @@ const ItemDetail = (props) => {
                 :
                 (
                     <div className="media">
-                        <img src={state.item.photos[0] ? state.item.photos[0] : dummy} className="align-self-center mr-3" alt="dummy" height="600" />
+                        <Carousel slide={false} indicators={false} controls={state.item.photos.length > 1}>
+                            {
+                                state.item.photos.map((photo, i) => (
+                                    <Carousel.Item key={i}>
+                                        <img src={photo ? photo : dummy} className="align-self-center mr-3" alt={state.item.name} height="600" width="400" />
+                                    </Carousel.Item>
+                                ))
+                            }
+                            
+                        </Carousel>
+                        {/* <img src={state.item.photos[0] ? state.item.photos[0] : dummy} className="align-self-center mr-3" alt="dummy" height="600" /> */}
                         <div className="media-body">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
@@ -64,7 +74,7 @@ const ItemDetail = (props) => {
                             </nav>
                             <h1 className="mt-0 h1-text">{state.item.name.toUpperCase()}</h1>
                             <h4 className="mt-0 h4-text">IDR {state.item.price}</h4>
-                            <p className="mb-0" style={{paddingRight:"60%"}}>Pair of wayang Godless, inspired stud earings in gold plated sterling silver.</p>
+                            <p className="mb-0" style={{paddingRight:"60%"}}>{state.item.shortdescription}</p>
                             <p className="mb-0">Measurement:</p>
                             <p className="mb-4">Approx. {state.item.dimension.split(";").join(" x ")}</p>
                             <h4 className="mt-3 mb-0 h4-text">DETAILS & CARE</h4>
