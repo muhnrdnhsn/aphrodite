@@ -4,6 +4,7 @@
     position: relative;
     text-align: center;
     color: white;
+    margin: 10%;
 }
 
 .text-overlay-center{
@@ -13,8 +14,20 @@
     transform: translate(-50%, -50%);
     font-family: 'Quincy CF';
     font-size: 55px;
+    overflow: hidden;
 }
 
 .react-multiple-carousel__arrow{
     background: $primary;
+}
+
+.card-textoverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
 }

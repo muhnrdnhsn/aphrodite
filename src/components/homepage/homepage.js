@@ -13,8 +13,10 @@ const Homepage = () => {
                     <p className="text-h2">CARVING YOUR PERFECT JEWERLY</p>
                     <p className="text-h1">Aphrodite</p>
                     <p className="text-h3">PERSONALIZE &#183; TRY IT ON &#183; PERFECT</p>
-                    <button className="btn btn-primary lg-btn">TRY OUR AR!</button>
-                    <button className="btn btn-primary lg-btn" onClick={() => history.push('/collections')}>SHOP NOW</button>
+                    <form action="https://instagram.com/her.aphrodite/">
+                        <button className="btn btn-primary lg-btn" type="submit">TRY OUR AR!</button>
+                        <button className="btn btn-primary lg-btn" onClick={() => history.push('/collections')} type="button">SHOP NOW</button>
+                    </form>
                 </div>
                 <div className="col">
                     <img src={image} alt="Aphrodite" height="700"/>

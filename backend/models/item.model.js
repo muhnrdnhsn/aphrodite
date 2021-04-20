@@ -15,6 +15,10 @@ const itemSchema = new Schema({
         type: String,
         required: true
     },
+    shortdescription: {
+        type: String,
+        required: true
+    },
     dimension: {
         type: String,
         required: true

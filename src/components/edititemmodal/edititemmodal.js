@@ -25,6 +25,7 @@ const Edititemmodal = ({collections, selected, handleClose, show}) => {
             materials: '',
             sizes: '',
             description: '',
+            shortdescription: '',
             collectionID: ''
         })
         handleClose('editmodal', refresh)
@@ -64,6 +65,7 @@ const Edititemmodal = ({collections, selected, handleClose, show}) => {
                     <Form.Control value={modalState.dimension} type="text" placeholder="Item dimension (format: w;h;d)" id="dimension" onChange={handleChange} className="mb-2"  />
                     <Form.Control value={modalState.materials} type="text" placeholder="Materials (separate value by semicolon ';')" id="materials" onChange={handleChange} className="mb-2"  />
                     <Form.Control value={modalState.sizes} type="text" placeholder="Sizes (separate value by semicolon ';')" id="sizes" onChange={handleChange} className="mb-2"  />
+                    <Form.Control value={modalState.shortdescription} as="textarea" rows={2} placeholder="Item short description" id="shortdescription" onChange={handleChange} className="mb-2"  /> 
                     <Form.Control value={modalState.description} as="textarea" rows={5} placeholder="Item description" id="description" onChange={handleChange} className="mb-2"  /> 
                     <Form.Label style={{fontSize: '15px'}}>Collection</Form.Label>
                     <Form.Control value={modalState.collectionID} as="select" id="collectionID" onChange={handleChange} className="mb-2"  >
@@ -83,6 +85,7 @@ const Edititemmodal = ({collections, selected, handleClose, show}) => {
                         modalState.materials === '' ||
                         modalState.sizes === '' ||
                         modalState.description === '' ||
+                        modalState.shortdescription === '' ||
                         modalState.collectionID === ''
                     } 
                     className="btn btn-secondary btn-action" 
