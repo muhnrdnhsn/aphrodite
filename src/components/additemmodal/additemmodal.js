@@ -14,7 +14,8 @@ const Additemmodal = ({collections, handleClose, show}) => {
         materials: '',
         sizes: '',
         description: '',
-        collectionID: ''
+        collectionID: '',
+        shortdescription: ''
     });
 
 
@@ -33,7 +34,8 @@ const Additemmodal = ({collections, handleClose, show}) => {
             materials: '',
             sizes: '',
             description: '',
-            collectionID: ''
+            collectionID: '',
+            shortdescription: ''
         })
         handleClose('addmodal', refresh)
     }
@@ -60,7 +62,7 @@ const Additemmodal = ({collections, handleClose, show}) => {
             keyboard={false}
         >
             <Modal.Header className="justify-content-center">
-                <Modal.Title>Add Items</Modal.Title>
+                <Modal.Title>Add Item</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -69,6 +71,7 @@ const Additemmodal = ({collections, handleClose, show}) => {
                     <Form.Control type="text" placeholder="Item dimension (format: w;h;d)" id="dimension" onChange={handleChange} className="mb-2"  />
                     <Form.Control type="text" placeholder="Materials (separate value by semicolon ';')" id="materials" onChange={handleChange} className="mb-2"  />
                     <Form.Control type="text" placeholder="Sizes (separate value by semicolon ';')" id="sizes" onChange={handleChange} className="mb-2"  />
+                    <Form.Control as="textarea" rows={2} placeholder="Item short description" id="shortdescription" onChange={handleChange} className="mb-2"  /> 
                     <Form.Control as="textarea" rows={5} placeholder="Item description" id="description" onChange={handleChange} className="mb-2"  /> 
                     <Form.Label style={{fontSize: '15px'}}>Collection</Form.Label>
                     <Form.Control as="select" id="collectionID" onChange={handleChange} className="mb-2"  >
@@ -88,6 +91,7 @@ const Additemmodal = ({collections, handleClose, show}) => {
                         modalState.materials === '' ||
                         modalState.sizes === '' ||
                         modalState.description === '' ||
+                        modalState.shortdescription === '' ||
                         modalState.collectionID === ''
                     } 
                     className="btn btn-secondary btn-action" 

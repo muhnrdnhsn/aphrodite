@@ -68,8 +68,10 @@ const Collections = () => {
                     >
                         {collectionState.collections.map(collection => (
                             <div className="card-container" key={collection._id}>
-                                <img style={{cursor: 'pointer'}} src={collection.thumbnail} height="600" width="400" alt={collection.name} onClick={() => handleClick(collection)} />
-                                <div style={{cursor: 'pointer'}} className="text-overlay-center" onClick={() => handleClick(collection)} >{collection.name}</div>
+                                <img style={{cursor: 'pointer', width: '100%', height: 600}} src={collection.thumbnail}  alt={collection.name}  />
+                                <div className="card-textoverlay" onClick={() => handleClick(collection)}>
+                                    <div style={{cursor: 'pointer'}} className="text-overlay-center" onClick={() => handleClick(collection)} >{collection.name}</div>
+                                </div>
                             </div>
                         ))}
                     </Carousel>

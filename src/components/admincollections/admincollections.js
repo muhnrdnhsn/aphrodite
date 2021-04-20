@@ -99,8 +99,12 @@ const AdminCollections = () => {
                             state.collections.map(collection => (
                                 <div className="col-3 mb-4" key={collection._id}>
                                     <div className="cardadmin-container">
-                                        <img src={collection.thumbnail} width="300" height="400" alt="coll" />
-                                        <div style={{cursor: 'default'}} className="text-overlay-center" >{collection.name}</div>
+                                        <div className="cardadmin-image">
+                                            <img src={collection.thumbnail} style={{height: 400, width: "100%"}}  alt="coll" />
+                                            <div className="cardamin-textoverlay">
+                                                <div style={{cursor: 'default'}} className="text-overlay-center" >{collection.name}</div>
+                                            </div>
+                                        </div>
                                         <button className="btn btn-secondary btn-action" onClick={() => handleEdit(collection)}>Edit</button>
                                         <button className="btn btn-primary btn-action" onClick={() => handleRemove(collection)}>Remove</button>
                                     </div>
